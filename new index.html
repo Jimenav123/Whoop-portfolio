@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jimena Vazquez × WHOOP</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+:root{
+  --bg:#0f1219;
+  --bg-2:#161b26;
+  --bg-3:#1c2233;
+  --bg-4:#232a3b;
+  --border:rgba(255,255,255,.06);
+  --border-hover:rgba(255,255,255,.12);
+  --white:#fff;
+  --text-primary:#edf0f7;
+  --text-secondary:#8b93a7;
+  --text-dim:#545d73;
+  --blue:#00b4d8;
+  --blue-dim:rgba(0,180,216,.1);
+  --blue-glow:rgba(0,180,216,.06);
+  --green:#44c767;
+  --green-bg:rgba(68,199,103,.1);
+  --red:#e74c3c;
+  --red-bg:rgba(231,76,60,.1);
+  --yellow:#f59e0b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-primary);font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:1200px;margin:0 auto;padding:0 48px}
+section{padding:140px 0}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,18,25,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-left{font-size:14px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.nav-left span{color:var(--text-dim);font-weight:400}
+.nav-right{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-right a{color:var(--text-secondary);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+.nav-right a:hover{color:var(--white)}
+.nav-cta{background:var(--blue);color:#000;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:60px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,var(--blue-glow) 0%,transparent 65%);top:30%;right:-10%;pointer-events:none}
+.hero-content{position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,7vw,5.5rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:var(--white);margin-bottom:24px}
+.hero h1 .acc{color:var(--blue)}
+.hero-p{font-size:18px;color:var(--text-secondary);max-width:480px;line-height:1.7;margin-bottom:40px;font-weight:400}
+.hero-btns{display:flex;gap:12px;margin-bottom:80px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
+.pill-blue{background:var(--blue);color:#000}
+.pill-blue:hover{opacity:.85}
+.pill-outline{background:transparent;color:var(--white);border:1px solid var(--border-hover)}
+.pill-outline:hover{border-color:rgba(255,255,255,.35)}
+.stats-row{display:flex;gap:72px}
+.stat h3{font-size:48px;font-weight:800;letter-spacing:-.03em;color:var(--white);line-height:1}
+.stat p{font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:8px;font-weight:500}
+
+.sh{margin-bottom:64px}
+.sh-label{font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px}
+.sh h2{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;color:var(--white);margin-bottom:16px}
+.sh p{font-size:16px;color:var(--text-secondary);max-width:520px;line-height:1.7}
+
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border-radius:16px;overflow:hidden;margin-bottom:40px}
+.r-card{background:var(--bg);padding:48px}
+.r-card h3{font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.r-card h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.r-card p{font-size:15px;color:var(--text-secondary);line-height:1.7}
+.revenue-banner{background:var(--bg-2);border-radius:16px;padding:56px;display:flex;align-items:center;justify-content:space-between;gap:48px;border:1px solid var(--border)}
+.rev-left h3{font-size:64px;font-weight:900;color:var(--blue);letter-spacing:-.04em;line-height:1}
+.rev-left p{font-size:15px;color:var(--text-secondary);margin-top:8px;max-width:340px;line-height:1.6}
+.rev-right{display:flex;gap:48px}
+.rev-stat h4{font-size:24px;font-weight:700;color:var(--white);letter-spacing:-.02em}
+.rev-stat p{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;font-weight:500}
+
+.creative-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.c-piece{border-radius:12px;overflow:hidden;transition:transform .3s;background:var(--bg-2);border:1px solid var(--border)}
+.c-piece:hover{transform:translateY(-4px);border-color:var(--border-hover)}
+.c-email{grid-row:span 2}
+.c-email-top{background:var(--bg-3);padding:14px 18px;border-bottom:1px solid var(--border)}
+.c-dots{display:flex;gap:5px;margin-bottom:8px}
+.c-dots i{width:7px;height:7px;border-radius:50%;display:block}
+.c-dots i:nth-child(1){background:var(--red)}
+.c-dots i:nth-child(2){background:var(--yellow)}
+.c-dots i:nth-child(3){background:var(--green)}
+.c-email-from{font-size:11px;color:var(--text-dim)}
+.c-email-from b{color:var(--text-secondary)}
+.c-email-body{padding:20px 18px}
+.c-email-hero{background:linear-gradient(145deg,#0a1520,var(--bg-2));border-radius:8px;padding:28px 18px;text-align:center;margin-bottom:14px;border:1px solid var(--border)}
+.c-pill-sm{display:inline-block;background:var(--blue);color:#000;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:100px;margin-bottom:10px}
+.c-email-hero h3{font-size:17px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:6px}
+.c-email-hero p{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:14px}
+.c-email-cta{display:inline-block;background:var(--blue);color:#000;font-size:11px;font-weight:700;padding:9px 20px;border-radius:100px;letter-spacing:.03em}
+.c-feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.c-feat{background:var(--bg-3);border-radius:8px;padding:14px;text-align:center}
+.c-feat h4{font-size:11px;font-weight:600;color:var(--white);margin-bottom:2px}
+.c-feat p{font-size:10px;color:var(--text-dim);line-height:1.4}
+
+.c-social-top{padding:12px 14px;display:flex;align-items:center;gap:8px}
+.c-av{width:24px;height:24px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#000}
+.c-uname{font-size:11px;font-weight:600;color:var(--white)}
+.c-spons{font-size:10px;color:var(--text-dim)}
+.c-visual{margin:0 14px 14px;border-radius:8px;overflow:hidden}
+.cv{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;position:relative}
+.cv.sq{aspect-ratio:1}
+.cv.tall{aspect-ratio:9/14}
+.cv-pcos{background:linear-gradient(155deg,#0a1520,#0f1219 50%,#1a1018)}
+.cv-adhd{background:linear-gradient(155deg,#0c0f1e,#0f1219 50%,#0a1520)}
+.cv-badge{position:absolute;top:12px;left:12px;background:var(--blue);color:#000;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:100px}
+.cv-wm{position:absolute;top:14px;right:12px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.3em;color:rgba(255,255,255,.08)}
+.cv-h{font-size:22px;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-.02em;margin-bottom:6px}
+.cv-h .g{color:var(--blue);font-style:italic;font-weight:500}
+.cv-sub{font-size:10px;color:var(--text-secondary);line-height:1.5;max-width:170px}
+.cv-stats{display:flex;gap:20px;margin-top:12px}
+.cvs-n{font-size:20px;font-weight:700;color:var(--blue)}
+.cvs-l{font-size:8px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em}
+.c-caption{padding:0 14px;font-size:11px;color:var(--text-secondary);line-height:1.5}
+.c-caption b{color:var(--white)}
+.c-engage{padding:6px 14px 14px;font-size:10px;color:var(--text-dim);display:flex;gap:12px}
+
+.lc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--border);border-radius:16px;overflow:hidden}
+.lc-step{background:var(--bg);padding:32px 20px;text-align:center;transition:background .2s}
+.lc-step:hover{background:var(--bg-2)}
+.lc-num{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.1em;margin-bottom:12px}
+.lc-step h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:8px}
+.lc-step p{font-size:12px;color:var(--text-dim);line-height:1.5}
+
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.pm-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border-radius:12px;overflow:hidden}
+.pm{background:var(--bg);padding:32px}
+.pm h3{font-size:32px;font-weight:800;color:var(--blue);letter-spacing:-.02em;line-height:1}
+.pm p{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;margin-top:6px;font-weight:500}
+.proof-text h3{font-size:28px;font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1.15;margin-bottom:20px}
+.proof-text p{font-size:15px;color:var(--text-secondary);line-height:1.75;margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tag{padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500;color:var(--text-secondary);border:1px solid var(--border-hover)}
+
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:16px;overflow:hidden}
+.why-cell{background:var(--bg);padding:44px;transition:background .2s}
+.why-cell:hover{background:var(--bg-2)}
+.why-n{font-size:40px;font-weight:900;color:rgba(255,255,255,.04);line-height:1;margin-bottom:20px;letter-spacing:-.03em}
+.why-cell h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px}
+.why-cell p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+
+.cta{text-align:center;padding:160px 0}
+.cta h2{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-.04em;color:var(--white);margin-bottom:16px;line-height:1.05}
+.cta h2 .acc{color:var(--blue)}
+.cta p{font-size:16px;color:var(--text-secondary);margin-bottom:40px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+footer{padding:32px 48px;text-align:center;font-size:12px;color:var(--text-dim);border-top:1px solid var(--border)}
+
+@media(max-width:768px){
+.w{padding:0 24px}section{padding:80px 0}nav{padding:14px 24px}.nav-right{display:none}.stats-row{flex-direction:column;gap:32px}.research-grid,.creative-grid,.lc-grid,.why-grid,.proof-grid,.pm-grid{grid-template-columns:1fr}.revenue-banner{flex-direction:column;text-align:center;padding:40px 28px}.rev-right{flex-direction:column;gap:24px}.hero-btns{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-left">Jimena Vazquez <span>× WHOOP</span></div>
+<ul class="nav-right">
+<li><a href="#research">Research</a></li>
+<li><a href="#creative">Creative</a></li>
+<li><a href="#lifecycle">Email Flow</a></li>
+<li><a href="#proof">Proof</a></li>
+<li><a href="#why">Why Me</a></li>
+<li><a href="#contact" class="nav-cta">Get in touch</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-glow"></div>
+<div class="w hero-content">
+<h1>WHOOP's algorithms<br><span class="acc">misread</span> 36,600+<br>members with<br>ADHD and PCOS.</h1>
+<p class="hero-p">Six months ago I sent Will a case study identifying this blind spot. He responded. Now I'm back with the creative execution to bring the solution to market.</p>
+<div class="hero-btns">
+<a href="#creative" class="pill pill-blue">See the creative work ↓</a>
+<a href="#research" class="pill pill-outline">Read the research</a>
+</div>
+<div class="stats-row">
+<div class="stat"><h3>36,600+</h3><p>Members affected</p></div>
+<div class="stat"><h3>$56M+</h3><p>Revenue opportunity</p></div>
+<div class="stat"><h3>0</h3><p>Competitors in the space</p></div>
+</div>
+</div>
+</section>
+
+<section id="research">
+<div class="w">
+<div class="sh"><div class="sh-label">The Research</div><h2>The case study that started<br>the conversation.</h2><p>I identified a massive underserved segment hiding in WHOOP's existing user base. Members whose unique physiology makes current algorithms inaccurate.</p></div>
+<div class="research-grid">
+<div class="r-card"><h3>ADHD Members</h3><p>Different autonomic nervous system regulation leads to HRV patterns that WHOOP misinterprets. What the app labels "poor recovery" may actually be their optimal state.</p></div>
+<div class="r-card"><h3>PCOS Members</h3><p>Hormonal fluctuations and insulin resistance (present in 50 to 70% of PCOS women) affect strain tolerance and recovery, but WHOOP's recommendations stay static.</p></div>
+<div class="r-card"><h3>The Math</h3><p>Approximately 435,000 U.S. members multiplied by prevalence rates equals 26,100 with ADHD plus 10,500 with PCOS. Over 8% of members may be receiving inaccurate health data.</p></div>
+<div class="r-card"><h3>First Mover IP</h3><p>Patent research shows no major wearable company has filed for ADHD optimized algorithms or comprehensive PCOS physiological integration. Wide open territory.</p></div>
+</div>
+<div class="revenue-banner">
+<div class="rev-left"><h3>$122.4M</h3><p>Potential annual revenue from a specialized fourth subscription tier at $40 per month</p></div>
+<div class="rev-right"><div class="rev-stat"><h4>25.5M</h4><p>U.S. adults with ADHD or PCOS</p></div><div class="rev-stat"><h4>$40/mo</h4><p>Proposed tier pricing</p></div><div class="rev-stat"><h4>1%</h4><p>Conservative capture rate</p></div></div>
+</div>
+</div>
+</section>
+
+<section id="creative">
+<div class="w">
+<div class="sh"><div class="sh-label">The Execution</div><h2>From insight to inbox<br>to Instagram.</h2><p>Mock creative for a WHOOP PCOS and ADHD feature launch. Email, paid social, and lifecycle marketing designed in WHOOP's brand language.</p></div>
+<div class="creative-grid">
+<div class="c-piece c-email">
+<div class="c-email-top"><div class="c-dots"><i></i><i></i><i></i></div><div class="c-email-from"><b>From:</b> WHOOP &lt;health@whoop.com&gt;<br><b>Subject:</b> Your body isn't broken. Our algorithm was.</div></div>
+<div class="c-email-body">
+<div class="c-email-hero"><div class="c-pill-sm">New Feature</div><h3>Introducing<br>Condition Aware Recovery</h3><p>WHOOP now adapts to your unique physiology. PCOS. ADHD. Your recovery score finally reflects your body.</p><div class="c-email-cta">Activate Your Profile →</div></div>
+<div class="c-feat-grid"><div class="c-feat"><h4>Cycle Synced Strain</h4><p>Calibrated to your hormonal phase</p></div><div class="c-feat"><h4>Focus Windows</h4><p>Detect your peak cognitive hours</p></div><div class="c-feat"><h4>Circadian Reset</h4><p>Track your body's true rhythm</p></div><div class="c-feat"><h4>Smart Alerts</h4><p>Notifications tuned to you</p></div></div>
+</div>
+</div>
+
+<div class="c-piece">
+<div class="c-social-top"><div class="c-av">W</div><div><div class="c-uname">whoop</div><div class="c-spons">Sponsored</div></div></div>
+<div class="c-visual"><div class="cv sq" style="background:var(--bg);padding:20px;align-items:stretch;justify-content:flex-start">
+<div style="text-align:left;margin-bottom:16px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Did you know?</div><div style="font-size:16px;font-weight:800;color:var(--white);line-height:1.2;letter-spacing:-.01em">PCOS affects how your<br>body recovers. Your<br>wearable should know that.</div></div>
+<div style="display:flex;gap:12px;margin-bottom:16px">
+<div style="flex:1;background:var(--bg-3);border-radius:10px;padding:14px;text-align:center">
+<div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><span style="font-size:18px;font-weight:800;color:var(--red)">38%</span></div>
+<div style="font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em">Without PCOS calibration</div>
+</div>
+<div style="flex:1;background:var(--bg-3);border-radius:10px;padding:14px;text-align:center">
+<div style="width:56px;height:56px;border-radius:50%;border:3px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 8px"><span style="font-size:18px;font-weight:800;color:var(--green)">71%</span></div>
+<div style="font-size:9px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em">With PCOS calibration</div>
+</div>
+</div>
+<div style="background:var(--bg-3);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px">
+<div style="width:28px;height:28px;border-radius:50%;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:12px;color:var(--blue)">✦</span></div>
+<div style="font-size:10px;color:var(--text-secondary);line-height:1.4">Your HRV drops ~12ms during luteal phase. That's normal for PCOS, not poor recovery.</div>
+</div>
+</div></div>
+<div class="c-caption"><b>whoop</b> 6% of women have PCOS. 0 wearables account for it. Until now. Link in bio.</div>
+<div class="c-engage"><span>♡ 4,281</span><span>💬 312</span><span>↗ 1,089</span></div>
+</div>
+
+<div class="c-piece">
+<div class="c-social-top"><div class="c-av">W</div><div><div class="c-uname">whoop</div><div class="c-spons">Sponsored · TikTok</div></div></div>
+<div class="c-visual"><div class="cv tall cv-adhd"><div class="cv-badge">ADHD Optimized</div><div class="cv-wm">WHOOP</div><div style="margin-top:40px"><div class="cv-h" style="font-size:24px">Your brain<br>works <span class="g">differently.</span></div><div class="cv-sub" style="max-width:190px;margin:8px auto 0">Your wearable should too. Introducing ADHD aware recovery. Built for brains that don't do "average."</div></div><div style="margin-top:auto;padding-top:24px;width:100%"><div style="background:var(--blue);color:#000;font-size:11px;font-weight:700;padding:11px;border-radius:100px;text-align:center;text-transform:uppercase;letter-spacing:.04em">Learn More</div></div></div></div>
+<div class="c-caption"><b>whoop</b> "My readiness score is always red but I feel great." Sound familiar? We fixed that.</div>
+<div class="c-engage"><span>♡ 8,420</span><span>💬 1,203</span><span>↗ 3,412</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="lifecycle">
+<div class="w">
+<div class="sh"><div class="sh-label">The Journey</div><h2>Onboarding email flow for<br>PCOS and ADHD members.</h2><p>A 5 touch lifecycle sequence that educates, activates, and retains condition aware members from day one.</p></div>
+<div class="lc-grid">
+<div class="lc-step"><div class="lc-num">DAY 0</div><h4>Welcome + Opt In</h4><p>"Your body isn't average. Your WHOOP shouldn't be either." Invite to self identify conditions.</p></div>
+<div class="lc-step"><div class="lc-num">DAY 3</div><h4>Education</h4><p>"Here's how PCOS and ADHD affect your recovery." Science backed explainer with personalized data.</p></div>
+<div class="lc-step"><div class="lc-num">DAY 7</div><h4>Activation</h4><p>"Your first week, recalibrated." Before and after recovery score with condition aware adjustments.</p></div>
+<div class="lc-step"><div class="lc-num">DAY 14</div><h4>Insight Unlock</h4><p>"Your Focus Window is 9 to 11am." First personalized insight delivered via the new tier.</p></div>
+<div class="lc-step"><div class="lc-num">DAY 30</div><h4>Upgrade Push</h4><p>"Your body told us a lot this month." Summary of condition specific insights plus upgrade CTA.</p></div>
+</div>
+</div>
+</section>
+
+<section id="proof">
+<div class="w">
+<div class="sh"><div class="sh-label">Proof of Execution</div><h2>I already market to<br>this exact audience.</h2><p>Wellness For Her is a women's health brand I built from scratch, targeting the same demographic WHOOP's new features would serve.</p></div>
+<div class="proof-grid">
+<div class="pm-grid">
+<div class="pm"><h3>150%</h3><p>Subscriber growth</p></div>
+<div class="pm"><h3>10K+</h3><p>Monthly impressions</p></div>
+<div class="pm"><h3>25%+</h3><p>Avg engagement rate</p></div>
+<div class="pm"><h3>1K</h3><p>Avg story views</p></div>
+</div>
+<div class="proof-text">
+<h3>Same audience.<br>Same mission.<br>Already executing.</h3>
+<p>I built Wellness For Her around PCOS, hormonal health, and insulin sensitivity. These are the exact topics WHOOP would need to market to this segment.</p>
+<p>This isn't theoretical. I already know how to talk to these women, what content resonates, and how to translate complex health data into language that drives action.</p>
+<div class="tags"><span class="tag">PCOS Content</span><span class="tag">Hormonal Health</span><span class="tag">Insulin Sensitivity</span><span class="tag">Social Strategy</span><span class="tag">Email Marketing</span><span class="tag">Women's Wellness</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="why">
+<div class="w">
+<div class="sh"><div class="sh-label">The Differentiator</div><h2>Why I belong at WHOOP.</h2><p>Most candidates bring design skills. I bring design skills plus the domain expertise plus the lived experience to make this product real.</p></div>
+<div class="why-grid">
+<div class="why-cell"><div class="why-n">01</div><h3>I live the problem</h3><p>I have ADHD and PCOS. My own readiness scores are inaccurate. I've kept friends from abandoning their wearables by teaching them to reinterpret their data. I'm not pitching a market segment. I'm pitching my daily reality.</p></div>
+<div class="why-cell"><div class="why-n">02</div><h3>I've done the research</h3><p>Patent landscape analysis. Revenue modeling. Prevalence calculations. The case study wasn't a class project. It was original research that got a response from WHOOP's CEO.</p></div>
+<div class="why-cell"><div class="why-n">03</div><h3>I already reach the audience</h3><p>Through Wellness For Her, I've built and grown a community of women navigating hormonal health. I know what content converts and how to turn health data into action.</p></div>
+<div class="why-cell"><div class="why-n">04</div><h3>Strategy meets execution</h3><p>Northeastern business and health science degree. Harvard comms experience. Columbia Threadneedle marketing. MBG Health Coach certification. I think at the strategy level and execute at the creative level.</p></div>
+<div class="why-cell"><div class="why-n">05</div><h3>Trilingual reach</h3><p>Native English and Spanish speaker, currently learning Portuguese. As WHOOP scales across 56 countries, I can extend campaigns into Spanish and Portuguese speaking markets, covering the two fastest growing language demographics in the U.S. and Latin America.</p></div>
+<div class="why-cell"><div class="why-n">06</div><h3>I want to be here</h3><p>This isn't a backup plan. I cold pitched the CEO, built original research, and now I'm back with the creative execution. WHOOP's mission is personal to me.</p></div>
+</div>
+</div>
+</section>
+
+<section class="cta" id="contact">
+<div class="w">
+<h2>Let's build this<br><span class="acc">together.</span></h2>
+<p>I identified the opportunity. I designed the campaign. Now I want to make it real from inside WHOOP.</p>
+<div class="cta-btns">
+<a href="mailto:Jimenav02@Icloud.com" class="pill pill-blue">Get in touch →</a>
+<a href="https://jimena-port.vercel.app" class="pill pill-outline">Full portfolio ↗</a>
+<a href="https://www.linkedin.com/in/jimena-vázquez/" class="pill pill-outline">LinkedIn ↗</a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 Jimena Vazquez · Built with intention for WHOOP</footer>
+
+</body>
+</html>
